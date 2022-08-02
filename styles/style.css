@@ -10,11 +10,12 @@
 html {
   font-size: 62.5%;
   min-width: 375px;
+  user-select: none;
 }
 
 [data-theme="1"]:root {
-  --clr-key: hsl(28, 16%, 65%);
-  --clr-primary: hsl(0, 0, 100%);
+  --clr-key: hsl(221, 14%, 31%);
+  --clr-primary: hsl(0, 0%, 100%);
 
   --shadow-primary-key: hsl(28, 16%, 65%);
   --shadow-secondary-key: hsl(224, 28%, 35%);
@@ -30,7 +31,7 @@ html {
 
 [data-theme="2"]:root {
   --clr-key: hsl(60, 10%, 19%);
-  --clr-primary: hsl(0, 0, 100%);
+  --clr-primary: hsl(0, 0%, 100%);
 
   --shadow-primary-key: hsl(35, 11%, 61%);
   --shadow-secondary-key: hsl(185, 58%, 25%);
@@ -46,7 +47,7 @@ html {
 
 [data-theme="3"]:root {
   --clr-key: hsl(52, 100%, 62%);
-  --clr-primary: hsl(0, 0, 100%);
+  --clr-primary: hsl(0, 0%, 100%);
   --clr-secondary: hsl(198, 20%, 13%);
 
   --shadow-primary-key: hsl(290, 70%, 36%);
@@ -55,7 +56,7 @@ html {
 
   --bg: hsl(268, 75%, 9%);
   --bg-element: hsl(268, 71%, 12%);
-  --bg-display: hsl(224, 36%, 15%);
+  --bg-display: var(--bg-element);
   --bg-primary-key: hsl(268, 47%, 21%);
   --bg-secondary-key: hsl(281, 89%, 26%);
   --bg-accent-key: hsl(176, 100%, 44%);
@@ -63,4 +64,231 @@ html {
 
 body {
   font: bold 3.2rem "League Spartan", sans-serif;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--clr-key);
+}
+
+[data-theme="1"] body {
+  color: var(--clr-primary);
+}
+
+main {
+  display: grid;
+  gap: 2.5rem;
+  max-width: 500px;
+  padding: 2.5rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.theme-section {
+  display: flex;
+  align-items: flex-end;
+  gap: 3rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.theme-section span {
+  margin-bottom: 0.8rem;
+}
+
+.theme-toggle ol {
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#toggle {
+  --border-radius: 100px;
+
+  display: block;
+  width: 7.7rem;
+  height: 28px;
+  padding: 5.5px 6px;
+  margin-top: 0.6rem;
+  border-radius: var(--border-radius);
+  background: var(--bg-element);
+  cursor: pointer;
+}
+
+#toggle-button {
+  display: block;
+  width: 17px;
+  height: 17px;
+  border-radius: var(--border-radius);
+  background: var(--bg-accent-key);
+  transform: translateX(0%);
+  transition: transform 0.25s ease-in-out;
+}
+
+#toggle:hover #toggle-button {
+  filter: brightness(1.8);
+}
+
+.display {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-size: 4rem;
+  text-align: end;
+  width: 100%;
+  height: 8.5rem;
+  padding: 0.5rem 2.5rem 0;
+  border-radius: 10px;
+  background: var(--bg-display);
+  user-select: text;
+}
+
+.key-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "seven eight nine del"
+    "four five six plus"
+    "one two three minus"
+    "dot zero div multi"
+    "reset reset result result";
+  gap: 1.5rem;
+  padding: 2.5rem;
+  border-radius: 10px;
+  background: var(--bg-element);
+}
+
+button {
+  aspect-ratio: 1/1;
+  text-transform: uppercase;
+  padding: 1.5rem 1.25rem 0.5rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 5px 0 0 var(--clr-shadow);
+  cursor: pointer;
+  color: var(--clr);
+  background: var(--bg);
+}
+
+button:hover {
+  background: linear-gradient(white, white),
+    linear-gradient(var(--bg), var(--bg));
+  background-blend-mode: soft-light;
+}
+
+button.theme-1 {
+  --clr: var(--clr-key);
+  --clr-shadow: var(--shadow-primary-key);
+  --bg: var(--bg-primary-key);
+}
+
+button.theme-2 {
+  --clr: var(--clr-primary);
+  --clr-shadow: var(--shadow-secondary-key);
+  --bg: var(--bg-secondary-key);
+
+  font-size: 2rem;
+}
+
+button.theme-3 {
+  --clr: var(--clr-primary);
+  --clr-shadow: var(--shadow-accent-key);
+  --bg: var(--bg-accent-key);
+}
+
+button[data-value="zero"] {
+  grid-area: zero;
+}
+
+button[data-value="one"] {
+  grid-area: one;
+}
+
+button[data-value="two"] {
+  grid-area: two;
+}
+
+button[data-value="three"] {
+  grid-area: three;
+}
+
+button[data-value="four"] {
+  grid-area: four;
+}
+
+button[data-value="five"] {
+  grid-area: five;
+}
+
+button[data-value="six"] {
+  grid-area: six;
+}
+
+button[data-value="seven"] {
+  grid-area: seven;
+}
+
+button[data-value="eight"] {
+  grid-area: eight;
+}
+
+button[data-value="nine"] {
+  grid-area: nine;
+}
+
+button[data-value="del"] {
+  grid-area: del;
+}
+
+button[data-value="plus"] {
+  grid-area: plus;
+}
+
+button[data-value="minus"] {
+  grid-area: minus;
+}
+
+button[data-value="multi"] {
+  grid-area: multi;
+  text-transform: lowercase;
+}
+
+button[data-value="div"] {
+  grid-area: div;
+}
+
+button[data-value="reset"] {
+  aspect-ratio: 2/1;
+  grid-area: reset;
+}
+
+button[data-value="result"] {
+  aspect-ratio: 2/1;
+  font-size: 2.6rem;
+  grid-area: result;
+}
+
+button[data-value="dot"] {
+  grid-area: dot;
+}
+
+@media (min-width: 500px) {
+  button {
+    aspect-ratio: 19/12;
+    padding: 0.5rem 2rem 0;
+  }
+
+  button[data-value="reset"],
+  button[data-value="result"] {
+    aspect-ratio: 21/6.01;
+  }
 }
