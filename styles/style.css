@@ -1,0 +1,66 @@
+@import url(../styles/normalize.css);
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  min-width: 375px;
+}
+
+[data-theme="1"]:root {
+  --clr-key: hsl(28, 16%, 65%);
+  --clr-primary: hsl(0, 0, 100%);
+
+  --shadow-primary-key: hsl(28, 16%, 65%);
+  --shadow-secondary-key: hsl(224, 28%, 35%);
+  --shadow-accent-key: hsl(6, 70%, 34%);
+
+  --bg: hsl(222, 26%, 31%);
+  --bg-element: hsl(223, 31%, 20%);
+  --bg-display: hsl(224, 36%, 15%);
+  --bg-primary-key: hsl(30, 25%, 89%);
+  --bg-secondary-key: hsl(225, 21%, 49%);
+  --bg-accent-key: hsl(6, 63%, 50%);
+}
+
+[data-theme="2"]:root {
+  --clr-key: hsl(60, 10%, 19%);
+  --clr-primary: hsl(0, 0, 100%);
+
+  --shadow-primary-key: hsl(35, 11%, 61%);
+  --shadow-secondary-key: hsl(185, 58%, 25%);
+  --shadow-accent-key: hsl(25, 99%, 27%);
+
+  --bg: hsl(0, 0%, 90%);
+  --bg-element: hsl(0, 5%, 81%);
+  --bg-display: hsl(0, 0%, 93%);
+  --bg-primary-key: hsl(45, 7%, 89%);
+  --bg-secondary-key: hsl(185, 42%, 37%);
+  --bg-accent-key: hsl(25, 98%, 40%);
+}
+
+[data-theme="3"]:root {
+  --clr-key: hsl(52, 100%, 62%);
+  --clr-primary: hsl(0, 0, 100%);
+  --clr-secondary: hsl(198, 20%, 13%);
+
+  --shadow-primary-key: hsl(290, 70%, 36%);
+  --shadow-secondary-key: hsl(285, 91%, 52%);
+  --shadow-accent-key: hsl(177, 92%, 70%);
+
+  --bg: hsl(268, 75%, 9%);
+  --bg-element: hsl(268, 71%, 12%);
+  --bg-display: hsl(224, 36%, 15%);
+  --bg-primary-key: hsl(268, 47%, 21%);
+  --bg-secondary-key: hsl(281, 89%, 26%);
+  --bg-accent-key: hsl(176, 100%, 44%);
+}
+
+body {
+  font: bold 3.2rem "League Spartan", sans-serif;
+}
