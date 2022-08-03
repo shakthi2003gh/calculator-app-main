@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Frontend Mentor | Calculator app</title>
   <link rel="stylesheet" href="./styles/style.css">
-  <script src="./index.js"></script>
+  <script src="./index.js" defer></script>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
       <div class="logo">calc</div>
 
       <div class="theme-section">
-        <span>theme</span>
+        <span draggable="true">theme</span>
 
         <div class="theme-toggle">
           <ol>
@@ -32,7 +32,7 @@
       </div>
     </header>
 
-    <div class="display">547,545</div>
+    <div class="display">0</div>
 
     <div class="key-section">
       <button class="theme-1" data-value="zero" data-type="number">0</button>
@@ -50,7 +50,7 @@
       <button class="theme-1" data-value="minus" data-type="operator">-</button>
       <button class="theme-1" data-value="multi" data-type="operator">x</button>
       <button class="theme-1" data-value="div" data-type="operator">/</button>
-      <button class="theme-1" data-value="dot" data-type="operator">.</button>
+      <button class="theme-1" data-value="dot" data-type="number">.</button>
       <button class="theme-2" data-value="reset" data-type="operator">reset</button>
       <button class="theme-3" data-value="result" data-type="operator">=</button>
     </div>
